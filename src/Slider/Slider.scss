@@ -11,7 +11,6 @@
         height: 100%;
         position: relative;
         .item {
-            list-style: none;
             height: 100%;
             display: inline-block;
         }
@@ -29,7 +28,6 @@
             border-radius: 50%;
             background: lightblue;
             display: inline-block;
-            list-style: none;
             &:not(:last-child) {
                 margin-right: 5px;
             }
