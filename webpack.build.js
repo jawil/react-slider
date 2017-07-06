@@ -9,9 +9,9 @@ const APP_PATH = path.resolve(ROOT_PATH, 'src')
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build')
 
 module.exports = {
-    devtool: 'cheap-module-eval-source-map',
+    devtool: false,
     entry: {
-        app: './src/index.js'
+        app: './src/index.jsx'
     },
     output: {
         path: BUILD_PATH, // 编译到当前目录
@@ -78,7 +78,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html', // 生成的html存放路径，相对于 path
-            template: './src/index.html',
+            template: './index.html',
             inject: true, // 允许插件修改哪些内容，包括head与body
             hash: true // 为静态资源生成hash值
         }),

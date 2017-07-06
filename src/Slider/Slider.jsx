@@ -40,6 +40,8 @@ export default class Slider extends Component {
   }
 
   touchStart(e) {
+    e.preventDefault()
+    e.stopPropagation()
     clearInterval(this.autoPlayTimer)
     this.setState({isMove: true, isFirst: true, startPageX: e.changedTouches[0].pageX, startPageY: e.changedTouches[0].pageY})
   }
@@ -56,7 +58,7 @@ export default class Slider extends Component {
       isDown() && (this.state.isMove = false)
     }
     if (this.state.isMove) {
-      (this.state.index === 0) && (this.state.index = this.state.length - 1);
+      (this.state.index === 0) && (this.state.index = this.state.length);
       (this.state.index >= this.state.length * 2 - 1) && (this.state.index = this.state.length - 1)
       let currentDistance = -this.state.index * this.state.baseWidth + distanceX
       this.setState({time: '0s', distance: currentDistance})
