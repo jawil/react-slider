@@ -79,7 +79,6 @@ export default class Slider extends Component {
 
   render() {
     let {data, opts} = this.props
-
     const Dots = data.map((item, i) => {
       let currentStyle = i === this.state.index % this.state.length ? 'current' : ''
       return (
@@ -89,9 +88,13 @@ export default class Slider extends Component {
 
     const Items = data.map((item, i) => {
       return (
-        <div key={i} className="item" style={{width: `${ 100 / (this.state.length * 2)}%`}}>
+        <div key={i} className="item" style={{
+          width: `${ 100 / (this.state.length * 2)}%`
+        }}>
           <a href={item.link}>
-            <img style={{width: '100%'}} src={item.src} alt=""/>
+            <img style={{
+              width: '100%'
+            }} src={item.src} alt=""/>
           </a>
         </div>
       )
@@ -104,7 +107,9 @@ export default class Slider extends Component {
     }
 
     return <div className="slider-wrap">
-      <div className="item-wrap" style={sliderStyle}
+      <div
+        className="item-wrap"
+        style={sliderStyle}
         onTouchStart={e => this.touchStart(e)}
         onTouchMove={e => this.touchMove(e)}
         onTouchEnd={e => this.touchEnd(e)}
